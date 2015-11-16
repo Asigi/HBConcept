@@ -5,6 +5,8 @@ package io.arsh.hbconcept;
  */
 public class TheFoodUtil {
 
+    public static String ANY_CUISINE = "Any";
+    public static int ANY_ZIP = 00000;
 
     private static String myCuisine;
     private static int myZip;
