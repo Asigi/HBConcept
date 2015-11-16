@@ -8,7 +8,7 @@ public class TheColorUtil {
 
     public static int getStatusBarColor() {
 
-        return 0xffaabbcc;
+        return 0xffffaaaa;
     }
 
 

@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
         Window window = getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(TheColorUtil.getMainColor());
+        window.setStatusBarColor(TheColorUtil.getStatusBarColor());
 
         setContentView(R.layout.activity_main);
 
@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
 
     @OnClick(R.id.MainButton)
     public void clickedCont() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, SearchActivity.class);
         //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK); //this prevents you from getting back to the previous page.
         startActivity(intent);

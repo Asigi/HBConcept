@@ -11,9 +11,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class SearchActivity extends Activity {
 
@@ -36,7 +38,7 @@ public class SearchActivity extends Activity {
         Window window = getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(TheColorUtil.getMainColor());
+        window.setStatusBarColor(TheColorUtil.getStatusBarColor());
 
         setContentView(R.layout.activity_search);
         ButterKnife.bind(this);
@@ -82,6 +84,12 @@ public class SearchActivity extends Activity {
 
     }
 
+
+    @OnClick(R.id.SearchButton)
+    public void findCooks() {
+        Toast.makeText(this, "Your Cuisine is " + TheFoodUtil.getTheCuisine()
+                + ", and your zip is " + TheFoodUtil.getTheZip(), Toast.LENGTH_SHORT).show();
+    }
 
 
 
