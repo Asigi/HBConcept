@@ -1,8 +1,11 @@
 package io.arsh.hbconcept;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +28,9 @@ public class MainActivity extends Activity {
     Button myButton;
 
 
+    private DataHelper myDataHelper;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +46,10 @@ public class MainActivity extends Activity {
 
         ButterKnife.bind(this);
 
+        myDataHelper = new DataHelper(this);
         //check SQLite for whether or not there is pre-loaded data. 
         //if not, then call loadPreData(); 
-
+        //loadPreData();
 
 
 
@@ -50,6 +57,31 @@ public class MainActivity extends Activity {
 
     //private void loadPreData() {
     //  put a ton of stuff into SQLite
+    private void loadPreData() {
+        SQLiteDatabase database = myDataHelper.getWritableDatabase();
+        database.beginTransaction();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "Ultradman");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "Arsh");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "Singh");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "14411 94th St");
+        contentValues.put(DataHelper.COLUMN_CITY, "Seattle");
+        contentValues.put(DataHelper.COLUMN_STATE, "Washington");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "98000");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, "Yes");
+        database.insert(DataHelper.USERS_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "Ultradman");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
+        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
+        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
+
+
+
+
+    }
 
 
 
