@@ -31,6 +31,23 @@ public class MainActivity extends Activity {
     private DataHelper myDataHelper;
 
 
+    @OnClick(R.id.MainButton)
+    public void clickedCont() {
+        Intent intent = new Intent(this, SearchActivity.class);
+        //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK); //this prevents you from getting back to the previous page.
+        startActivity(intent);
+    }
+
+
+
+    @OnClick(R.id.MainProfileButton)
+    public void clickedProf(View theView) {
+        //show a popup for user to log in, log out, look at other stuff
+    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +72,9 @@ public class MainActivity extends Activity {
 
     }
 
+
+
+
     //private void loadPreData() {
     //  put a ton of stuff into SQLite
     private void loadPreData() {
@@ -65,7 +85,7 @@ public class MainActivity extends Activity {
         contentValues.put(DataHelper.COLUMN_USER_NAME, "Ultradman");
         contentValues.put(DataHelper.COLUMN_USER_FIRST, "Arsh");
         contentValues.put(DataHelper.COLUMN_USER_LAST, "Singh");
-        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "14411 94th St");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "14411 7th St");
         contentValues.put(DataHelper.COLUMN_CITY, "Seattle");
         contentValues.put(DataHelper.COLUMN_STATE, "Washington");
         contentValues.put(DataHelper.COLUMN_ZIP_CODE, "98000");
@@ -77,8 +97,282 @@ public class MainActivity extends Activity {
         contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
         contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
         contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
+        database.insert(DataHelper.COOKS_TABLE, null, contentValues);
 
 
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
+        contentValues.put(DataHelper.COLUMN_CITY, "");
+        contentValues.put(DataHelper.COLUMN_STATE, "");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        database.insert(DataHelper.USERS_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
+        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
+        database.insert(DataHelper.COOKS_TABLE, null, contentValues);
+
+
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
+        contentValues.put(DataHelper.COLUMN_CITY, "");
+        contentValues.put(DataHelper.COLUMN_STATE, "");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        database.insert(DataHelper.USERS_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
+        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
+        database.insert(DataHelper.COOKS_TABLE, null, contentValues);
+
+
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
+        contentValues.put(DataHelper.COLUMN_CITY, "");
+        contentValues.put(DataHelper.COLUMN_STATE, "");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        database.insert(DataHelper.USERS_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
+        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
+        database.insert(DataHelper.COOKS_TABLE, null, contentValues);
+
+
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
+        contentValues.put(DataHelper.COLUMN_CITY, "");
+        contentValues.put(DataHelper.COLUMN_STATE, "");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        database.insert(DataHelper.USERS_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
+        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
+        database.insert(DataHelper.COOKS_TABLE, null, contentValues);
+
+
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
+        contentValues.put(DataHelper.COLUMN_CITY, "");
+        contentValues.put(DataHelper.COLUMN_STATE, "");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        database.insert(DataHelper.USERS_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
+        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
+        database.insert(DataHelper.COOKS_TABLE, null, contentValues);
+
+
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
+        contentValues.put(DataHelper.COLUMN_CITY, "");
+        contentValues.put(DataHelper.COLUMN_STATE, "");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        database.insert(DataHelper.USERS_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
+        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
+        database.insert(DataHelper.COOKS_TABLE, null, contentValues);
+
+
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
+        contentValues.put(DataHelper.COLUMN_CITY, "");
+        contentValues.put(DataHelper.COLUMN_STATE, "");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        database.insert(DataHelper.USERS_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
+        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
+        database.insert(DataHelper.COOKS_TABLE, null, contentValues);
+
+
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
+        contentValues.put(DataHelper.COLUMN_CITY, "");
+        contentValues.put(DataHelper.COLUMN_STATE, "");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        database.insert(DataHelper.USERS_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
+        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
+        database.insert(DataHelper.COOKS_TABLE, null, contentValues);
+
+
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
+        contentValues.put(DataHelper.COLUMN_CITY, "");
+        contentValues.put(DataHelper.COLUMN_STATE, "");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        database.insert(DataHelper.USERS_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
+        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
+        database.insert(DataHelper.COOKS_TABLE, null, contentValues);
+
+
+
+
+
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Butter Naan");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Saag Paneer");
+        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Italian");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Italian");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Italian");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Japanese");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Japanese");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Japanese");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Thai");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Thai");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Thai");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Thai");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
 
     }
@@ -86,18 +380,4 @@ public class MainActivity extends Activity {
 
 
 
-    @OnClick(R.id.MainButton)
-    public void clickedCont() {
-        Intent intent = new Intent(this, SearchActivity.class);
-        //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK); //this prevents you from getting back to the previous page.
-        startActivity(intent);
-    }
-
-
-
-    @OnClick(R.id.MainProfileButton)
-    public void clickedProf(View theView) {
-        //show a popup for user to log in, log out, look at other stuff
-    }
 }
