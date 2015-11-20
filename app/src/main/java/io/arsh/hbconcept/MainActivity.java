@@ -255,8 +255,8 @@ public class MainActivity extends Activity {
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_USER_NAME, "");
         contentValues.put(DataHelper.COLUMN_CUISINE, "");
-        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
-        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
+        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98104);
+        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98101);
         database.insert(DataHelper.COOKS_TABLE, null, contentValues);
 
 
@@ -275,10 +275,9 @@ public class MainActivity extends Activity {
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_USER_NAME, "");
         contentValues.put(DataHelper.COLUMN_CUISINE, "");
-        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
-        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
+        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98104);
+        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98101);
         database.insert(DataHelper.COOKS_TABLE, null, contentValues);
-
 
 
 
