@@ -85,11 +85,11 @@ public class MainActivity extends Activity {
         contentValues.put(DataHelper.COLUMN_USER_NAME, "Ultradman");
         contentValues.put(DataHelper.COLUMN_USER_FIRST, "Arsh");
         contentValues.put(DataHelper.COLUMN_USER_LAST, "Singh");
-        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "14411 7th St");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "1411 7th St");
         contentValues.put(DataHelper.COLUMN_CITY, "Seattle");
         contentValues.put(DataHelper.COLUMN_STATE, "Washington");
-        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "98000");
-        contentValues.put(DataHelper.COLUMN_IS_COOK, "Yes");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "98164");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, 1);
         database.insert(DataHelper.USERS_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
@@ -102,19 +102,19 @@ public class MainActivity extends Activity {
 
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
-        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
-        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
-        contentValues.put(DataHelper.COLUMN_CITY, "");
-        contentValues.put(DataHelper.COLUMN_STATE, "");
-        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
-        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "GmonS");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "Gurdeep");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "Singh");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "121 4th Ave");
+        contentValues.put(DataHelper.COLUMN_CITY, "Seattle");
+        contentValues.put(DataHelper.COLUMN_STATE, "Washington");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "98164");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, 1);
         database.insert(DataHelper.USERS_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "GmonS");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
         contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
         contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
         database.insert(DataHelper.COOKS_TABLE, null, contentValues);
@@ -122,19 +122,19 @@ public class MainActivity extends Activity {
 
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
-        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
-        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
-        contentValues.put(DataHelper.COLUMN_CITY, "");
-        contentValues.put(DataHelper.COLUMN_STATE, "");
-        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
-        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "Amagili");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "Aman");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "Gill");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "456 18th St");
+        contentValues.put(DataHelper.COLUMN_CITY, "Seattle");
+        contentValues.put(DataHelper.COLUMN_STATE, "Washington");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "98164");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, 1);
         database.insert(DataHelper.USERS_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "Amagili");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
         contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
         contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
         database.insert(DataHelper.COOKS_TABLE, null, contentValues);
@@ -142,19 +142,19 @@ public class MainActivity extends Activity {
 
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
-        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
-        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
-        contentValues.put(DataHelper.COLUMN_CITY, "");
-        contentValues.put(DataHelper.COLUMN_STATE, "");
-        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
-        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "Adada");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "Adalberto");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "Abate");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "222 8th Ave");
+        contentValues.put(DataHelper.COLUMN_CITY, "Seattle");
+        contentValues.put(DataHelper.COLUMN_STATE, "Washington");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "98164");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, 1);
         database.insert(DataHelper.USERS_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "Adada");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Italian");
         contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
         contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
         database.insert(DataHelper.COOKS_TABLE, null, contentValues);
@@ -162,19 +162,19 @@ public class MainActivity extends Activity {
 
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
-        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
-        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
-        contentValues.put(DataHelper.COLUMN_CITY, "");
-        contentValues.put(DataHelper.COLUMN_STATE, "");
-        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
-        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "CaCa");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "Ale");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "Caito");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "5403 64th Pl");
+        contentValues.put(DataHelper.COLUMN_CITY, "Seattle");
+        contentValues.put(DataHelper.COLUMN_STATE, "Washington");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "98164");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, 1);
         database.insert(DataHelper.USERS_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "CaCa");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Italian");
         contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
         contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
         database.insert(DataHelper.COOKS_TABLE, null, contentValues);
@@ -182,19 +182,19 @@ public class MainActivity extends Activity {
 
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
-        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
-        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
-        contentValues.put(DataHelper.COLUMN_CITY, "");
-        contentValues.put(DataHelper.COLUMN_STATE, "");
-        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
-        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "Donat");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "Celso");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "Donati");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "9903 102nd St");
+        contentValues.put(DataHelper.COLUMN_CITY, "Seattle");
+        contentValues.put(DataHelper.COLUMN_STATE, "Washington");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "98164");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, 1);
         database.insert(DataHelper.USERS_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "Donat");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Italian");
         contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
         contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
         database.insert(DataHelper.COOKS_TABLE, null, contentValues);
@@ -202,59 +202,59 @@ public class MainActivity extends Activity {
 
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
-        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
-        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
-        contentValues.put(DataHelper.COLUMN_CITY, "");
-        contentValues.put(DataHelper.COLUMN_STATE, "");
-        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
-        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "Azabe55");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "Anzu");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "Abe");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "199 4th Pl");
+        contentValues.put(DataHelper.COLUMN_CITY, "Seattle");
+        contentValues.put(DataHelper.COLUMN_STATE, "Washington");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "98101");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, 1);
         database.insert(DataHelper.USERS_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_CUISINE, "");
-        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "Azabe55");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Japanese");
+        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98101);
         contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
         database.insert(DataHelper.COOKS_TABLE, null, contentValues);
 
 
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
-        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
-        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
-        contentValues.put(DataHelper.COLUMN_CITY, "");
-        contentValues.put(DataHelper.COLUMN_STATE, "");
-        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
-        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "Rockn");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "Raku");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "Nakagawa");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "676 83rd Ave");
+        contentValues.put(DataHelper.COLUMN_CITY, "Seattle");
+        contentValues.put(DataHelper.COLUMN_STATE, "Washington");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "98164");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, 1);
         database.insert(DataHelper.USERS_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "Rockn");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Japanese");
         contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
-        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
+        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98104);
         database.insert(DataHelper.COOKS_TABLE, null, contentValues);
 
 
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
-        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
-        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
-        contentValues.put(DataHelper.COLUMN_CITY, "");
-        contentValues.put(DataHelper.COLUMN_STATE, "");
-        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
-        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "MooJun");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "Chati");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "Juntasa");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "621 200th St");
+        contentValues.put(DataHelper.COLUMN_CITY, "Seattle");
+        contentValues.put(DataHelper.COLUMN_STATE, "Washington");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "98104");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, 1);
         database.insert(DataHelper.USERS_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "MooJun");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Thai");
         contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98104);
         contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98101);
         database.insert(DataHelper.COOKS_TABLE, null, contentValues);
@@ -262,19 +262,19 @@ public class MainActivity extends Activity {
 
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_USER_FIRST, "");
-        contentValues.put(DataHelper.COLUMN_USER_LAST, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "NaiNaiCat");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "Naiyana");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "Srisati");
         contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "");
-        contentValues.put(DataHelper.COLUMN_CITY, "");
-        contentValues.put(DataHelper.COLUMN_STATE, "");
-        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "");
-        contentValues.put(DataHelper.COLUMN_IS_COOK, "");
+        contentValues.put(DataHelper.COLUMN_CITY, "Seattle");
+        contentValues.put(DataHelper.COLUMN_STATE, "Washington");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "98104");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, 1);
         database.insert(DataHelper.USERS_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "");
-        contentValues.put(DataHelper.COLUMN_CUISINE, "");
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "NaiNaiCat");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Thai");
         contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98104);
         contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98101);
         database.insert(DataHelper.COOKS_TABLE, null, contentValues);
@@ -291,86 +291,86 @@ public class MainActivity extends Activity {
 
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
-        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
-        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Bhature");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Chole");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
-        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
-        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Makki Ki Roti");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Sarson Ka Saag");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
-        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
-        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Butter Chicken");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Rice");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
-        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
-        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Paneer Tikka");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Rice");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE, "Italian");
-        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
-        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Lasagne");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Risotto");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE, "Italian");
-        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
-        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Ravioli");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Buridda");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE, "Italian");
-        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
-        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Calzone");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Gnochi");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE, "Japanese");
-        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
-        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Chazuke");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Tonkatsu");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE, "Japanese");
-        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
-        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Omurice");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Anpan");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE, "Japanese");
-        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
-        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Maki-zushi");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Curry Bread");
+        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Japanese");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Ramen");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Yakitori");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE, "Thai");
-        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
-        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Khao Man Kai");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Phla Kung");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE, "Thai");
-        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
-        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Khao Nuea Op");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Khua Ho");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE, "Thai");
-        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
-        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
-        database.insert(DataHelper.DISHES_TABLE, null, contentValues);
-
-        contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_CUISINE, "Thai");
-        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "");
-        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Kaeng Khiao Wan");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Nang Kai Thot");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
 
