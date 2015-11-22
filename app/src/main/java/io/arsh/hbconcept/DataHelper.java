@@ -59,11 +59,11 @@ public class DataHelper extends SQLiteOpenHelper {
             COLUMN_USER_NAME + " TEXT, " + /* Note that TEXT is same as VARCHAR*/
             COLUMN_USER_FIRST + " TEXT, " +
             COLUMN_USER_LAST + " TEXT, " +
+            COLUMN_IS_COOK + " INTEGER, " +
             COLUMN_STREET_ADDRESS + " TEXT, " +
             COLUMN_CITY + " TEXT, " +
             COLUMN_STATE + " TEXT, " +
-            COLUMN_ZIP_CODE + " INTEGER, " +
-            COLUMN_IS_COOK + "INTEGER)"; //Is_Cook will be 0 if not a cook, 1 if is a cook.
+            COLUMN_ZIP_CODE + " INTEGER)"; //Is_Cook will be 0 if not a cook, 1 if is a cook.
 
 
     private static final String CREATE_COOKS_TABLE = "CREATE TABLE " + COOKS_TABLE + " (" +
