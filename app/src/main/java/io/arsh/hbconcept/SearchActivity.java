@@ -81,6 +81,10 @@ public class SearchActivity extends Activity {
 
 
 
+        //TODO when the continue button is clicked, open up a list activity which loads the data.
+        //The data that is loaded depends on what the two spinner items were selected as.
+        //Look at SavedBlogsActivity from Una App.
+
 
     }
 
