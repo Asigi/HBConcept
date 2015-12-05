@@ -47,15 +47,12 @@ public class MainActivity extends Activity {
         window.setStatusBarColor(TheColorUtil.getStatusBarColor());
 
         setContentView(R.layout.activity_main);
-
         ButterKnife.bind(this);
 
         myDataHelper = new DataHelper(this);
-
         SQLiteDatabase database = myDataHelper.getWritableDatabase();
 
-        //check SQLite for whether or not there is pre-loaded data. 
-        String countQuery = "SELECT * FROM " + DataHelper.USERS_TABLE;
+        String countQuery = "SELECT * FROM " + DataHelper.USERS_TABLE; //check SQLite for whether or not there is pre-loaded data. 
         Cursor cursor = database.rawQuery(countQuery, null);
 
         Toast.makeText(MainActivity.this, "count of users table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
@@ -82,6 +79,7 @@ public class MainActivity extends Activity {
 
     @OnClick(R.id.MainProfileButton)
     public void clickedProf(View theView) {
+        Toast.makeText(this, "clicked profile", Toast.LENGTH_SHORT).show();
         //show a popup for user to log in, log out, look at other stuff
     }
 
@@ -92,28 +90,62 @@ public class MainActivity extends Activity {
     //  put a ton of stuff into SQLite
     private void loadPreData(SQLiteDatabase database) {
         Toast.makeText(this, "in loadPreData", Toast.LENGTH_SHORT).show();
-        Log.d("MainActivity", "in loadPreData again 4");
+        Log.d("MainActivity", "in loadPreData");
 
         database.beginTransaction();
 
+
+        //state
         ContentValues contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_STATE, "Washington");
+        database.insert(DataHelper.STATE_TABLE, null, contentValues);
+
+        //city
+        //state id
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_CITY, "Seattle");
+        contentValues.put(DataHelper.COLUMN_STATE_ID, 1);
+        database.insert(DataHelper.CITY_TABLE, null, contentValues);
+
+        //street addr
+        //zip
+        //city id
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "1411 7th St");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "98164");
+        contentValues.put(DataHelper.COLUMN_CITY_ID, 1);
+        database.insert(DataHelper.ADDRESSES_TABLE, null, contentValues);
+
+
+        //username
+        //first name
+        //last name
+        //is cook (int)
+        //address id
+        contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_USER_NAME, "Ultradman");
         contentValues.put(DataHelper.COLUMN_USER_FIRST, "Arsh");
         contentValues.put(DataHelper.COLUMN_USER_LAST, "Singh");
-        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "1411 7th St");
-        contentValues.put(DataHelper.COLUMN_CITY, "Seattle");
-        contentValues.put(DataHelper.COLUMN_STATE, "Washington");
-        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "98164");
         contentValues.put(DataHelper.COLUMN_IS_COOK, 1);
+        contentValues.put(DataHelper.COLUMN_ADDRESS_ID, 1);
         database.insert(DataHelper.USERS_TABLE, null, contentValues);
 
+
+        //first zip
+        //second zip
+        //user id
         contentValues = new ContentValues();
-        contentValues.put(DataHelper.COLUMN_USER_NAME, "Ultradman");
-        contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
         contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
         contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
+        contentValues.put(DataHelper.COLUMN_USER_ID, 1);
         database.insert(DataHelper.COOKS_TABLE, null, contentValues);
 
+
+
+
+
+
+        /*
 
 
         contentValues = new ContentValues();
@@ -312,8 +344,8 @@ public class MainActivity extends Activity {
 
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
-        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Makki Ki Roti");
-        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Sarson Ka Saag");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Makki di Roti");
+        contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Sarson da Saag");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
         contentValues = new ContentValues();
@@ -330,7 +362,7 @@ public class MainActivity extends Activity {
 
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE, "Italian");
-        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Lasagne");
+        contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Lasagna");
         contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Risotto");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
@@ -388,6 +420,11 @@ public class MainActivity extends Activity {
         contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Nang Kai Thot");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
+
+
+        */
+
+
         database.setTransactionSuccessful();
         database.endTransaction();
         database.close();
@@ -398,3 +435,32 @@ public class MainActivity extends Activity {
 
 
 }
+
+
+/* COMPLETED INSERTS
+
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "Ultradman");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "Arsh");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "Singh");
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "1411 7th St");
+        contentValues.put(DataHelper.COLUMN_CITY, "Seattle");
+
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, "98164");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, 1);
+        database.insert(DataHelper.USERS_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "Ultradman");
+        contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
+        contentValues.put(DataHelper.COLUMN_FIRST_ZIP, 98164);
+        contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98174);
+        database.insert(DataHelper.COOKS_TABLE, null, contentValues);
+
+
+
+
+
+
+
+
+ */
