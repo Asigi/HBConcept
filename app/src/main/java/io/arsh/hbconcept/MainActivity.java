@@ -55,11 +55,53 @@ public class MainActivity extends Activity {
         String countQuery = "SELECT * FROM " + DataHelper.USERS_TABLE; //check SQLite for whether or not there is pre-loaded data. 
         Cursor cursor = database.rawQuery(countQuery, null);
 
-        Toast.makeText(MainActivity.this, "count of users table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
         if (cursor.getCount() < 1) { //if there is no preloaded data, then add the data.
             loadPreData(database);
         }
 
+
+
+
+        /* THE COMMENTED OUT CODE BELOW WAS USED TO PROVE THAT DATA HAD BEEN ENTERED INTO THE DATABASE.
+
+        Toast.makeText(MainActivity.this, "count of users table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
+
+        countQuery = "SELECT * FROM " + DataHelper.COOKS_TABLE; //check SQLite for whether or not there is pre-loaded data. 
+        cursor = database.rawQuery(countQuery, null);
+
+        Toast.makeText(MainActivity.this, "count of cooks table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
+
+        countQuery = "SELECT * FROM " + DataHelper.C_TO_D_TABLE; //check SQLite for whether or not there is pre-loaded data. 
+        cursor = database.rawQuery(countQuery, null);
+
+        Toast.makeText(MainActivity.this, "count of c to d table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
+
+        countQuery = "SELECT * FROM " + DataHelper.ADDRESSES_TABLE; //check SQLite for whether or not there is pre-loaded data. 
+        cursor = database.rawQuery(countQuery, null);
+
+        Toast.makeText(MainActivity.this, "count of address table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
+
+        countQuery = "SELECT * FROM " + DataHelper.CITY_TABLE; //check SQLite for whether or not there is pre-loaded data. 
+        cursor = database.rawQuery(countQuery, null);
+
+        Toast.makeText(MainActivity.this, "count of city table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
+
+        countQuery = "SELECT * FROM " + DataHelper.CUISINE_TABLE; //check SQLite for whether or not there is pre-loaded data. 
+        cursor = database.rawQuery(countQuery, null);
+
+        Toast.makeText(MainActivity.this, "count of cuisine table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
+
+        countQuery = "SELECT * FROM " + DataHelper.STATE_TABLE; //check SQLite for whether or not there is pre-loaded data. 
+        cursor = database.rawQuery(countQuery, null);
+
+        Toast.makeText(MainActivity.this, "count of state table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
+
+        countQuery = "SELECT * FROM " + DataHelper.DISHES_TABLE; //check SQLite for whether or not there is pre-loaded data. 
+        cursor = database.rawQuery(countQuery, null);
+
+        Toast.makeText(MainActivity.this, "count of dishes table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
+
+        */
 
 
     }
@@ -324,7 +366,6 @@ public class MainActivity extends Activity {
 
 
         //CUISINES BELOW
-
         //== 1
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE, "Punjabi");
@@ -344,9 +385,6 @@ public class MainActivity extends Activity {
 
 
         //DISHES BELOW
-
-
-
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE_ID, 1);
         contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Butter Naan");
@@ -394,25 +432,25 @@ public class MainActivity extends Activity {
         contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Calzone");
         contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Gnochi");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
-
+        //== 9
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE_ID, 3);
         contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Chazuke");
         contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Tonkatsu");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
-
+        //== 10
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE_ID, 3);
         contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Omurice");
         contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Anpan");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
-
+        //== 11
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE_ID, 3);
         contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Maki-zushi");
         contentValues.put(DataHelper.COLUMN_SIDE_DISH, "Curry Bread");
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
-
+        //==12
         contentValues = new ContentValues();
         contentValues.put(DataHelper.COLUMN_CUISINE_ID, 3);
         contentValues.put(DataHelper.COLUMN_MAIN_DISH, "Ramen");
@@ -438,6 +476,125 @@ public class MainActivity extends Activity {
         database.insert(DataHelper.DISHES_TABLE, null, contentValues);
 
 
+
+        //COOKS TO DISHES BELOW
+        //cook id
+        //dish id
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 1);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 1);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 1);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 2);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 1);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 3);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 1);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 4);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 1);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 5);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 2);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 2);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 3);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 3);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 3);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 5);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 4);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 6);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 4);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 7);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 4);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 8);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 5);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 6);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 5);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 7);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 5);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 8);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 6);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 7);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 7);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 9);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 7);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 10);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 7);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 11);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 8);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 12);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 9);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 13);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 9);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 14);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 9);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 15);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_COOK_ID, 10);
+        contentValues.put(DataHelper.COLUMN_DISH_ID, 13);
+        database.insert(DataHelper.C_TO_D_TABLE, null, contentValues);
 
 
         database.setTransactionSuccessful();

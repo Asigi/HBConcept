@@ -64,7 +64,7 @@ public class DataHelper extends SQLiteOpenHelper {
             COLUMN_STATE_ID + " INTEGER REFERENCES " + STATE_TABLE + "(" + COLUMN_STATE_ID + "))";
 
 
-    private static final String CREATE_ADDRESS_TABLE = "CREATE TABLE " + " (" +
+    private static final String CREATE_ADDRESS_TABLE = "CREATE TABLE " + ADDRESSES_TABLE + " (" +
             COLUMN_ADDRESS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COLUMN_STREET_ADDRESS + " TEXT, " +
             COLUMN_ZIP_CODE + " INTEGER, " +
@@ -100,7 +100,7 @@ public class DataHelper extends SQLiteOpenHelper {
 
 
     private static final String CREATE_C_TO_D_TABLE = "CREATE TABLE " + C_TO_D_TABLE + " (" +
-            COLUMN_COOK_ID + " INTEGER REFERENCES " + COOKS_TABLE + "(" + COLUMN_COOK_ID + ")" +
+            COLUMN_COOK_ID + " INTEGER REFERENCES " + COOKS_TABLE + "(" + COLUMN_COOK_ID + "), " +
             COLUMN_DISH_ID + " INTEGER REFERENCES " + DISHES_TABLE + "(" + DISHES_TABLE + "))";
 
 
@@ -133,7 +133,7 @@ public class DataHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        //NOT NECESSARY TO IMPLEMENT
     }
 
 
