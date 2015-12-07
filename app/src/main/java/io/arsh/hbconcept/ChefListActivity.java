@@ -33,15 +33,16 @@ public class ChefListActivity extends Activity {
 
         myDataHelper = new DataHelper(this);
 
+        myCookList = new ArrayList<Cook>();
         getTheCooks();
     }
 
 
     private void getTheCooks() {
 
-        String[] columns = {
+        /*String[] columns = {
                 DataHelper.COLUMN_USER_FIRST, DataHelper.COLUMN_USER_LAST
-        };
+        };*/
 
         SQLiteDatabase database = myDataHelper.getWritableDatabase();
         database.beginTransaction();
@@ -99,17 +100,24 @@ public class ChefListActivity extends Activity {
         Cursor c = database.rawQuery(query, null);
 
         while (c.moveToNext()) {
+            int cid = c.getInt(0);
+            int f = c.getInt(1);
+            int s = c.getInt(2);
 
+            String un = c.getString(5);
+            String fn = c.getString(6);
+            String ln = c.getString(7);
 
+            Cook cook = new Cook(fn, ln, un, f, s, cid);
 
-
-
-
-
+            myCookList.add(cook);
         }
 
 
 
+        //TODO set adapter
+
+        //TODO set onitemclick listener
 
         /*
         String whereClause =
@@ -164,11 +172,19 @@ public class ChefListActivity extends Activity {
 
     private class Cook {
 
+        public String myFN;
+        public String myLN;
+        public String myUN;
+
         public int myFZip;
         public int mySZip;
-        public int myID;
+        public int myID; //cook id
 
-        public Cook(int f, int s, int i) {
+        public Cook(String fn, String ln, String un, int f, int s, int i) {
+            myFN = fn;
+            myLN =ln;
+            myUN = un;
+
             myFZip = f;
             mySZip = s;
             myID = i;
