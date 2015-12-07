@@ -1,6 +1,7 @@
 package io.arsh.hbconcept;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -93,6 +94,11 @@ public class SearchActivity extends Activity {
     public void findCooks() {
         Toast.makeText(this, "Your Cuisine is " + TheFoodUtil.getTheCuisine()
                 + ", and your zip is " + TheFoodUtil.getTheZip(), Toast.LENGTH_SHORT).show();
+
+
+        //Intent intent = new Intent(this, ChefListActivity.class);
+        //startActivity(intent);
+
     }
 
 
