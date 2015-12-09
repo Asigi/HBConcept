@@ -129,6 +129,10 @@ public class DataHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_CUISINE_TABLE);
         db.execSQL(CREATE_DISHES_TABLE);
         db.execSQL(CREATE_C_TO_D_TABLE);
+
+        db.setTransactionSuccessful();
+        db.endTransaction();
+        db.close();
     }
 
     @Override

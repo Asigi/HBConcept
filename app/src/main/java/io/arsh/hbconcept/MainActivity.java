@@ -33,6 +33,7 @@ public class MainActivity extends Activity {
 
     private DataHelper myDataHelper;
 
+    private SQLiteDatabase database;
 
 
     @Override
@@ -49,16 +50,20 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        myDataHelper = new DataHelper(this);
-        SQLiteDatabase database = myDataHelper.getWritableDatabase();
+        if (myDataHelper == null) {
+            myDataHelper = new DataHelper(this);
+            database = myDataHelper.getWritableDatabase();
 
-        String countQuery = "SELECT * FROM " + DataHelper.USERS_TABLE; //check SQLite for whether or not there is pre-loaded data. 
-        Cursor cursor = database.rawQuery(countQuery, null);
+            String countQuery = "SELECT * FROM " + DataHelper.USERS_TABLE; //check SQLite for whether or not there is pre-loaded data. 
+            Cursor cursor = database.rawQuery(countQuery, null);
 
-        if (cursor.getCount() < 1) { //if there is no preloaded data, then add the data.
-            loadPreData(database);
+            if (cursor.getCount() < 1) { //if there is no preloaded data, then add the data.
+                loadPreData(database);
+            }
+        } else {
+            database.endTransaction();
+            database.close();
         }
-
 
 
 

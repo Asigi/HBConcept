@@ -3,6 +3,7 @@ package io.arsh.hbconcept;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -30,6 +31,7 @@ public class ChefAdapter extends RecyclerView.Adapter<ChefAdapter.ChefViewHolder
         int count = 0;
         for (Cook C: theChefs) {
             myChefs[count] = C;
+            count++;
         }
     }
 
@@ -46,6 +48,7 @@ public class ChefAdapter extends RecyclerView.Adapter<ChefAdapter.ChefViewHolder
 
     @Override
     public void onBindViewHolder(ChefViewHolder holder, int position) {
+        Log.e("ChefAdapter", "position is " + position);
         holder.bindChef(myChefs[position]);
     }
 

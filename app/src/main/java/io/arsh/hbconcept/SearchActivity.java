@@ -92,12 +92,12 @@ public class SearchActivity extends Activity {
 
     @OnClick(R.id.SearchButton)
     public void findCooks() {
-        Toast.makeText(this, "Your Cuisine is " + TheFoodUtil.getTheCuisine()
+        Toast.makeText(this, "Your Cuisine is " + TheFoodUtil.getTheCuisineID()
                 + ", and your zip is " + TheFoodUtil.getTheZip(), Toast.LENGTH_SHORT).show();
 
 
-        //Intent intent = new Intent(this, ChefListActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, ChefListActivity.class);
+        startActivity(intent);
 
     }
 

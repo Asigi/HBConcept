@@ -1,5 +1,6 @@
 package io.arsh.hbconcept;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.provider.ContactsContract;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -83,29 +85,29 @@ public class ChefListActivity extends Activity {
 
                 " INNER JOIN " + DataHelper.USERS_TABLE +
                 " on " + DataHelper.COOKS_TABLE + "." + DataHelper.COLUMN_USER_ID +
-                " " + DataHelper.USERS_TABLE + "." + DataHelper.COLUMN_USER_ID +
+                " = " + DataHelper.USERS_TABLE + "." + DataHelper.COLUMN_USER_ID +
 
                 " INNER JOIN " + DataHelper.C_TO_D_TABLE +
                 " on " + DataHelper.COOKS_TABLE + "." + DataHelper.COLUMN_COOK_ID +
-                " " + DataHelper.C_TO_D_TABLE + "." + DataHelper.COLUMN_COOK_ID +
+                " = " + DataHelper.C_TO_D_TABLE + "." + DataHelper.COLUMN_COOK_ID +
 
                 " INNER JOIN " + DataHelper.DISHES_TABLE +
                 " on " + DataHelper.C_TO_D_TABLE + "." + DataHelper.COLUMN_DISH_ID +
-                " " + DataHelper.DISHES_TABLE + "." + DataHelper.COLUMN_DISH_ID +
+                " = " + DataHelper.DISHES_TABLE + "." + DataHelper.COLUMN_DISH_ID +
 
                 " INNER JOIN " + DataHelper.CUISINE_TABLE +
                 " on " + DataHelper.DISHES_TABLE + "." + DataHelper.COLUMN_CUISINE_ID +
-                " " + DataHelper.CUISINE_TABLE + "." + DataHelper.COLUMN_CUISINE_ID +
+                " = " + DataHelper.CUISINE_TABLE + "." + DataHelper.COLUMN_CUISINE_ID +
 
-                " where (" + DataHelper.COOKS_TABLE + "." + DataHelper.COLUMN_FIRST_ZIP +
+                " where ((" + DataHelper.COOKS_TABLE + "." + DataHelper.COLUMN_FIRST_ZIP +
                 " = " + TheFoodUtil.getTheZip() +
                 " OR " + DataHelper.COOKS_TABLE + "." + DataHelper.COLUMN_SECOND_ZIP +
                 " = " + TheFoodUtil.getTheZip() + ")" +
 
-                " AND " + DataHelper.CUISINE_TABLE + "." + DataHelper.COLUMN_CUISINE +
-                " = " + TheFoodUtil.getTheCuisine() +
+                " AND " + DataHelper.CUISINE_TABLE + "." + DataHelper.COLUMN_CUISINE_ID +
+                " = " + TheFoodUtil.getTheCuisineID() +
 
-                " ORDER BY " + DataHelper.COOKS_TABLE + "." + DataHelper.COLUMN_COOK_ID;
+                ") ORDER BY " + DataHelper.COOKS_TABLE + "." + DataHelper.COLUMN_COOK_ID;
 
 
 
@@ -113,8 +115,9 @@ public class ChefListActivity extends Activity {
 
         Cursor c = database.rawQuery(query, null);
 
-        Toast.makeText(this, "cursor size is " + c.getCount(), Toast.LENGTH_SHORT).show();
+        Log.e(TAG, "cursor size is " + c.getCount());
 
+        int prev = -1; //used to prevent duplicate cook entries.
         while (c.moveToNext()) {
             int cid = c.getInt(0);
             Log.e(TAG, "id is " + cid);
@@ -131,11 +134,20 @@ public class ChefListActivity extends Activity {
             Log.e(TAG, "last name is " + ln);
 
             Cook cook = new Cook(fn, ln, un, f, s, cid);
-
-            myCookList.add(cook);
+            if (cid == prev) {
+                //do nothing
+            } else {
+                myCookList.add(cook);
+                prev = cid;
+            }
         }
 
+        Log.e(TAG, "list size with duplicates removed is " + myCookList.size());
 
+
+        database.setTransactionSuccessful();
+        database.endTransaction();
+        database.close();
 
 
         /*
@@ -176,11 +188,19 @@ public class ChefListActivity extends Activity {
 
     */
 
-
-
-
-
-
     }
+
+    @Override
+    public void onBackPressed() {
+
+        myDataHelper.close();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK); //this prevents you from getting back to the previous page.
+        startActivity(intent);
+    }
+
+
 
 }
