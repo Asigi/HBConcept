@@ -34,6 +34,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="io.arsh.hbconcept.SearchActivity" />
         </activity>
+        <activity
+            android:name=".CookProfileActivity"
+            android:label="@string/title_activity_cook_profile"
+            android:parentActivityName=".ChefListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="io.arsh.hbconcept.ChefListActivity" />
+        </activity>
     </application>
 
 </manifest>

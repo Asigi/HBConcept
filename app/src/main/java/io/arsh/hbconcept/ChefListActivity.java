@@ -5,25 +5,37 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.app.Activity;
 import android.provider.ContactsContract;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class ChefListActivity extends Activity {
 
+    private static final String TAG = ChefListActivity.class.getSimpleName();
 
     DataHelper myDataHelper;
 
     private List<Cook> myCookList;
 
+    @Bind(R.id.chefList) RecyclerView myRecyclerView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chef_list);
+        ButterKnife.bind(this);
 
-        //getActionBar().setDisplayHomeAsUpEnabled(true);
+
         getActionBar().hide();
 
         Window window = getWindow();
@@ -35,34 +47,36 @@ public class ChefListActivity extends Activity {
 
         myCookList = new ArrayList<Cook>();
         getTheCooks();
+        displayTheCooks();
+    }
+
+
+    private void displayTheCooks() {
+
+        ChefAdapter adapter = new ChefAdapter(ChefListActivity.this, myCookList);
+        myRecyclerView.setAdapter(adapter);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ChefListActivity.this);
+        myRecyclerView.setLayoutManager(layoutManager);
+
+        myRecyclerView.setHasFixedSize(true);
     }
 
 
     private void getTheCooks() {
 
-        /*String[] columns = {
-                DataHelper.COLUMN_USER_FIRST, DataHelper.COLUMN_USER_LAST
-        };*/
 
         SQLiteDatabase database = myDataHelper.getWritableDatabase();
         database.beginTransaction();
 
         /*
-
-          =  select  * from cooks
-
-          =  INNER JOIN users on cooks.id_users = users.id_users
-
-          =  INNER JOIN cook_to_dishes ON cooks.id_cook = cook_to_dishes.cooks_id_cook
-
-          =  INNER JOIN dishes ON cook_to_dishes.dishes_id_dishes = dishes.id_dishes
-
-          =  INNER JOIN cuisine ON dishes.cuisine_id_cuisine = cuisine.id_cuisine
-
-            where (cooks.first_zip = 98121 OR cooks.second_zip = 98121) AND cuisine.cuisine_name = "Punjabi"
-
-            order by cooks.id_cook;
-
+          select  * from cooks
+          INNER JOIN users on cooks.id_users = users.id_users
+          INNER JOIN cook_to_dishes ON cooks.id_cook = cook_to_dishes.cooks_id_cook
+          INNER JOIN dishes ON cook_to_dishes.dishes_id_dishes = dishes.id_dishes
+          INNER JOIN cuisine ON dishes.cuisine_id_cuisine = cuisine.id_cuisine
+          where (cooks.first_zip = 98121 OR cooks.second_zip = 98121) AND cuisine.cuisine_name = "Punjabi"
+          order by cooks.id_cook;
         */
 
         String query = "select * from " +  DataHelper.COOKS_TABLE +
@@ -99,14 +113,22 @@ public class ChefListActivity extends Activity {
 
         Cursor c = database.rawQuery(query, null);
 
+        Toast.makeText(this, "cursor size is " + c.getCount(), Toast.LENGTH_SHORT).show();
+
         while (c.moveToNext()) {
             int cid = c.getInt(0);
+            Log.e(TAG, "id is " + cid);
             int f = c.getInt(1);
+            Log.e(TAG, "first zip is " + f);
             int s = c.getInt(2);
+            Log.e(TAG, "second zip is " + s);
 
             String un = c.getString(5);
+            Log.e(TAG, "username is " + un);
             String fn = c.getString(6);
+            Log.e(TAG, "first name is " + fn);
             String ln = c.getString(7);
+            Log.e(TAG, "last name is " + ln);
 
             Cook cook = new Cook(fn, ln, un, f, s, cid);
 
@@ -115,9 +137,6 @@ public class ChefListActivity extends Activity {
 
 
 
-        //TODO set adapter
-
-        //TODO set onitemclick listener
 
         /*
         String whereClause =
@@ -163,43 +182,5 @@ public class ChefListActivity extends Activity {
 
 
     }
-
-
-
-
-
-
-
-    private class Cook {
-
-        public String myFN;
-        public String myLN;
-        public String myUN;
-
-        public int myFZip;
-        public int mySZip;
-        public int myID; //cook id
-
-        public Cook(String fn, String ln, String un, int f, int s, int i) {
-            myFN = fn;
-            myLN =ln;
-            myUN = un;
-
-            myFZip = f;
-            mySZip = s;
-            myID = i;
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
 
 }

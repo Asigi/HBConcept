@@ -24,6 +24,7 @@
 
     </string-array>
     <string name="title_activity_chef_list">ChefListActivity</string>
+    <string name="title_activity_cook_profile">CookProfileActivity</string>
 
 
 </resources>
