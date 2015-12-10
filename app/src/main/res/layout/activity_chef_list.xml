@@ -12,12 +12,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Select a cook to see \nwhat they&apos;re cooking!"
         android:id="@+id/textView7"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp" />
+        android:layout_marginTop="20dp"
+        android:textSize="14dp"
+        android:layout_marginBottom="20dp" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
@@ -27,4 +28,5 @@
         android:dividerHeight="0dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/textView7" />
+
 </RelativeLayout>

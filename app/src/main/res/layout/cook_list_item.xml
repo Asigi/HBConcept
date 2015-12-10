@@ -6,12 +6,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="First Last Name"
         android:id="@+id/cookItemName"
         android:layout_marginTop="20dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="26dp"
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,7 +22,7 @@
         android:id="@+id/cookItemUser"
         android:layout_below="@+id/cookItemName"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp" />
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,5 +31,6 @@
         android:text="Cook ID: #"
         android:id="@+id/cookItemID"
         android:layout_below="@+id/cookItemUser"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp" />
 </RelativeLayout>

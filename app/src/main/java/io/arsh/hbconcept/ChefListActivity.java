@@ -149,47 +149,9 @@ public class ChefListActivity extends Activity {
         database.endTransaction();
         database.close();
 
-
-        /*
-        String whereClause =
-                DataHelper.COLUMN_FIRST_ZIP + " = " + TheFoodUtil.getTheZip() +
-                " OR " +
-                DataHelper.COLUMN_SECOND_ZIP + " = " + TheFoodUtil.getTheZip();
-
-
-
-        Cursor c = database.query(
-                DataHelper.COOKS_TABLE,
-                null //tableColumns ,
-                whereClause,
-                null,
-                null,
-                null,
-                null // order by
-        );
-
-
-        c.moveToFirst();
-
-        myCookList = new ArrayList<Cook>();
-
-        for (int i = 0; i < c.getCount(); i++) {
-            int f = c.getInt(0);
-            int s = c.getInt(1);
-            int d = c.getInt(2);
-
-            Cook object = new Cook(f, s, d);
-
-            myCookList.add(object);
-
-            c.moveToFirst();
-        }
-
-
-    */
-
     }
 
+    /*
     @Override
     public void onBackPressed() {
 
@@ -200,7 +162,7 @@ public class ChefListActivity extends Activity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK); //this prevents you from getting back to the previous page.
         startActivity(intent);
     }
-
+*/
 
 
 }
