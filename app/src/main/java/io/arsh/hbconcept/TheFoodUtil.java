@@ -30,6 +30,10 @@ public class TheFoodUtil {
 
     }
 
+    public static String getTheCuisine() {
+        return myCuisine;
+    }
+
     public static void setTheZip(int theZip) {
         myZip = theZip;
     }

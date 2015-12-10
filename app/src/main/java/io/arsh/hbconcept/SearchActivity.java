@@ -92,7 +92,7 @@ public class SearchActivity extends Activity {
 
     @OnClick(R.id.SearchButton)
     public void findCooks() {
-        Toast.makeText(this, "Your Cuisine is " + TheFoodUtil.getTheCuisineID()
+        Toast.makeText(this, "Your Cuisine is " + TheFoodUtil.getTheCuisine()
                 + ", and your zip is " + TheFoodUtil.getTheZip(), Toast.LENGTH_SHORT).show();
 
 

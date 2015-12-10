@@ -7,10 +7,13 @@ import android.app.Activity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -38,8 +41,20 @@ public class CookProfileActivity extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         ButterKnife.bind(this);
 
+
+        Window window = getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(TheColorUtil.getStatusBarColor());
+
+
+        myDataHelper = new DataHelper(this);
+
+        myDishList = new ArrayList<>();
         getTheDishes();
         displayTheDishes();
+
+        myName.setText(TheCookUtil.getTheCook().myFN + " " + TheCookUtil.getTheCook().myLN);
     }
 
     private void displayTheDishes() {
@@ -79,11 +94,12 @@ public class CookProfileActivity extends Activity {
             int cid = c.getInt(0);
             Log.e(TAG, "id is " + cid);
 
-            int did = c.getInt(7);
+
+            int did = c.getInt(6);
             Log.e(TAG, "dish id is " + did);
-            String md = c.getString(8);
+            String md = c.getString(7);
             Log.e(TAG, "main dish is " + md);
-            String sd = c.getString(9);
+            String sd = c.getString(8);
             Log.e(TAG, "side dish is " + sd);
 
 
@@ -91,6 +107,10 @@ public class CookProfileActivity extends Activity {
 
             myDishList.add(dish);
         }
+
+        database.setTransactionSuccessful();
+        database.endTransaction();
+        database.close();
 
 
     }

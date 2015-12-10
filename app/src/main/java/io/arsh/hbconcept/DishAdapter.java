@@ -25,10 +25,11 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
 
     public DishAdapter(Context theContext, List<Dish> theDishes) {
         mContext = theContext;
-
+        Log.e("DishAdapter", theDishes.size() + " is dish list size");
         myDishes = new Dish[theDishes.size()];
         int count = 0;
         for (Dish C: theDishes) {
+            Log.e("DishAdapter, in foreach", C.myMain);
             myDishes[count] = C;
             count++;
         }
@@ -39,7 +40,7 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
     @Override
     public DishViewHolder onCreateViewHolder(ViewGroup parent, int i) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.cook_list_item, parent, false);
+                .inflate(R.layout.dish_list_item, parent, false);
 
         DishViewHolder viewHolder = new DishViewHolder(view);
         return viewHolder;
@@ -48,7 +49,7 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
 
     @Override
     public void onBindViewHolder(DishViewHolder holder, int position) {
-        Log.e("ChefAdapter", "position is " + position);
+        Log.e("DishAdapter", "position is " + position);
         holder.bindDish(myDishes[position]);
     }
 
@@ -92,7 +93,7 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
         @Override
         public void onClick(View v) {
             String name = myMain.getText().toString();
-            Toast.makeText(mContext, "Showing you dish" + name + " with # " + aDish.myID, Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "Showing you dish #" + aDish.myID + ": " + name, Toast.LENGTH_SHORT).show();
 
             //TODO add this dish to the foods that the user has eaten.
 
