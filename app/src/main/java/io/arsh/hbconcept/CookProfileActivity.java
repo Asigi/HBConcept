@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -18,6 +19,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class CookProfileActivity extends Activity {
 
@@ -31,7 +33,7 @@ public class CookProfileActivity extends Activity {
 
     @Bind(R.id.cookProfileName) TextView myName;
 
-
+    @Bind(R.id.cookProfileFav) ImageView myFavButton;
 
 
     @Override
@@ -117,6 +119,12 @@ public class CookProfileActivity extends Activity {
 
 
 
+    @OnClick (R.id.cookProfileFav)
+    public void Faved() {
+
+        TheCookUtil.favCookList.add(TheCookUtil.getTheCook());
+
+    }
 
 
 

@@ -102,6 +102,8 @@ public class MainActivity extends Activity {
                     TheUserUtil.setUser("TacomaEater", 11);
                     loggedIn = true;
 
+                    myDataHelper.accountCreated(database);
+
                     myButton.setEnabled(true);
 
                 }
@@ -112,6 +114,37 @@ public class MainActivity extends Activity {
 
             builder.show();
         } else {
+
+
+
+            Log.e("MAIN ACTIVITY CLASS", "Fav list size: " + TheCookUtil.favCookList.size());
+
+            if (TheCookUtil.favCookList.size() > 0) {
+
+                database = myDataHelper.getWritableDatabase();
+                database.beginTransaction();
+
+                for (Cook c: TheCookUtil.favCookList) {
+
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put(DataHelper.COLUMN_COOK_ID, c.myID);
+                    contentValues.put(DataHelper.COLUMN_USER_ID, 11);
+                    database.insert(DataHelper.FAV_TABLE, null, contentValues);
+                }
+
+                TheCookUtil.favCookList.clear();
+                String countQuery = "SELECT * FROM " + DataHelper.FAV_TABLE; //check SQLite for whether or not there is pre-loaded data. 
+                Cursor cursor = database.rawQuery(countQuery, null);
+                Log.e("MainActivity class", "size of fave in sql is: " + cursor.getCount());
+
+                database.setTransactionSuccessful();
+                database.endTransaction();
+                database.close();
+
+            }
+
+
+
 
 
              //if user is already logged in
@@ -160,7 +193,6 @@ public class MainActivity extends Activity {
 
         }
     }
-
 
 
 

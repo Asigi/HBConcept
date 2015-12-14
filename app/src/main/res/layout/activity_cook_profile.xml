@@ -41,4 +41,12 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="37dp" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cookProfileFav"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_picture_in_picture_black_48dp" />
+
 </RelativeLayout>

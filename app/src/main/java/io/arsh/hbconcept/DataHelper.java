@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
+import android.util.Log;
 
 /**
  * Created by arshdeep on 11/16/15.
@@ -123,15 +124,19 @@ public class DataHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(START_FOREIGN);
-        db.execSQL(CREATE_STATE_TABLE);
-        db.execSQL(CREATE_CITY_TABLE);
-        db.execSQL(CREATE_ADDRESS_TABLE);
-        db.execSQL(CREATE_USER_TABLE);
-        db.execSQL(CREATE_COOKS_TABLE);
-        db.execSQL(CREATE_CUISINE_TABLE);
-        db.execSQL(CREATE_DISHES_TABLE);
-        db.execSQL(CREATE_C_TO_D_TABLE);
+        try {
+            db.execSQL(CREATE_STATE_TABLE);
+            db.execSQL(CREATE_CITY_TABLE);
+            db.execSQL(CREATE_ADDRESS_TABLE);
+            db.execSQL(CREATE_USER_TABLE);
+            db.execSQL(CREATE_COOKS_TABLE);
+            db.execSQL(CREATE_CUISINE_TABLE);
+            db.execSQL(CREATE_DISHES_TABLE);
+            db.execSQL(CREATE_C_TO_D_TABLE);
 
+        } catch (Exception e) {
+            Log.e("DataHelper class", "exception: " + e.getMessage());
+        }
 
 
         db.setTransactionSuccessful();
@@ -140,6 +145,16 @@ public class DataHelper extends SQLiteOpenHelper {
     }
 
 
+    public static void accountCreated(SQLiteDatabase db) {
+        try {
+            db.execSQL(CREATE_FAV_TABLE);
+        } catch (Exception e) {
+            Log.e("DataHelper class", "exception " + e.getMessage());
+        }
+        Log.e("DataHelper class", "made new fav table");
+
+        db.close();
+    }
 
 
 
