@@ -22,6 +22,7 @@ public class DataHelper extends SQLiteOpenHelper {
     public static final String CUISINE_TABLE = "CUISINE";
     public static final String DISHES_TABLE = "DISHES";
     public static final String C_TO_D_TABLE = "COOKtoDISHES";
+    public static final String FAV_TABLE = "FavoriteCooks";
 
 
 
@@ -106,8 +107,9 @@ public class DataHelper extends SQLiteOpenHelper {
 
 
 
-    private static final String EXIST_CHECKER = "SELECT count(*) FROM " +
-            "sqlite_master WHERE type='table' AND name='" + COOKS_TABLE + "'";
+    private static final String CREATE_FAV_TABLE = "CREATE TABLE " + FAV_TABLE + " (" +
+            COLUMN_USER_ID + " INTEGER REFERENCES " + USERS_TABLE + "(" + COLUMN_USER_ID + "), " +
+            COLUMN_COOK_ID + " INTEGER REFERENCES " + COOKS_TABLE + "(" + COLUMN_COOK_ID + "))";
 
 
 
@@ -130,10 +132,17 @@ public class DataHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_DISHES_TABLE);
         db.execSQL(CREATE_C_TO_D_TABLE);
 
+
+
         db.setTransactionSuccessful();
         db.endTransaction();
         db.close();
     }
+
+
+
+
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -142,40 +151,3 @@ public class DataHelper extends SQLiteOpenHelper {
 
 
 }
-
-
-
-
-
-
-
-
-/**
-
-
- private static final String CREATE_USER_TABLE = "CREATE TABLE " + USERS_TABLE + " (" +
- COLUMN_USER_NAME + " TEXT, " + // Note that TEXT is same as VARCHAR
- COLUMN_USER_FIRST + " TEXT, " +
- COLUMN_USER_LAST + " TEXT, " +
- COLUMN_IS_COOK + " INTEGER, " +
- COLUMN_STREET_ADDRESS + " TEXT, " +
- COLUMN_CITY + " TEXT, " +
- COLUMN_STATE + " TEXT, " +
- COLUMN_ZIP_CODE + " INTEGER)"; //Is_Cook will be 0 if not a cook, 1 if is a cook.
-
-
- private static final String CREATE_COOKS_TABLE = "CREATE TABLE " + COOKS_TABLE + " (" +
- BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
- COLUMN_USER_NAME + " TEXT, " +
- COLUMN_CUISINE + " TEXT, " +
- COLUMN_FIRST_ZIP + " INTEGER, " +
- COLUMN_SECOND_ZIP + " INTEGER)";
-
-
- private static final String CREATE_DISHES_TABLE = "CREATE TABLE " + DISHES_TABLE + " (" +
- BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
- COLUMN_CUISINE + " TEXT, " +
- COLUMN_MAIN_DISH + " TEXT, " +
- COLUMN_SIDE_DISH + " TEXT)";
-
- **/

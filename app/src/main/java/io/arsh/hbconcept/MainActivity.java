@@ -1,7 +1,9 @@
 package io.arsh.hbconcept;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -35,6 +37,8 @@ public class MainActivity extends Activity {
 
     private SQLiteDatabase database;
 
+    private boolean loggedIn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        if (TheUserUtil.currentUserName == null) {
+            myButton.setEnabled(false);
+        }
+
         if (myDataHelper == null) {
             myDataHelper = new DataHelper(this);
             database = myDataHelper.getWritableDatabase();
@@ -64,50 +72,6 @@ public class MainActivity extends Activity {
             database.endTransaction();
             database.close();
         }
-
-
-
-        /* THE COMMENTED OUT CODE BELOW WAS USED TO PROVE THAT DATA HAD BEEN ENTERED INTO THE DATABASE.
-
-        Toast.makeText(MainActivity.this, "count of users table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
-
-        countQuery = "SELECT * FROM " + DataHelper.COOKS_TABLE; //check SQLite for whether or not there is pre-loaded data. 
-        cursor = database.rawQuery(countQuery, null);
-
-        Toast.makeText(MainActivity.this, "count of cooks table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
-
-        countQuery = "SELECT * FROM " + DataHelper.C_TO_D_TABLE; //check SQLite for whether or not there is pre-loaded data. 
-        cursor = database.rawQuery(countQuery, null);
-
-        Toast.makeText(MainActivity.this, "count of c to d table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
-
-        countQuery = "SELECT * FROM " + DataHelper.ADDRESSES_TABLE; //check SQLite for whether or not there is pre-loaded data. 
-        cursor = database.rawQuery(countQuery, null);
-
-        Toast.makeText(MainActivity.this, "count of address table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
-
-        countQuery = "SELECT * FROM " + DataHelper.CITY_TABLE; //check SQLite for whether or not there is pre-loaded data. 
-        cursor = database.rawQuery(countQuery, null);
-
-        Toast.makeText(MainActivity.this, "count of city table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
-
-        countQuery = "SELECT * FROM " + DataHelper.CUISINE_TABLE; //check SQLite for whether or not there is pre-loaded data. 
-        cursor = database.rawQuery(countQuery, null);
-
-        Toast.makeText(MainActivity.this, "count of cuisine table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
-
-        countQuery = "SELECT * FROM " + DataHelper.STATE_TABLE; //check SQLite for whether or not there is pre-loaded data. 
-        cursor = database.rawQuery(countQuery, null);
-
-        Toast.makeText(MainActivity.this, "count of state table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
-
-        countQuery = "SELECT * FROM " + DataHelper.DISHES_TABLE; //check SQLite for whether or not there is pre-loaded data. 
-        cursor = database.rawQuery(countQuery, null);
-
-        Toast.makeText(MainActivity.this, "count of dishes table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
-
-        */
-
 
     }
 
@@ -127,7 +91,74 @@ public class MainActivity extends Activity {
     @OnClick(R.id.MainProfileButton)
     public void clickedProf(View theView) {
         Toast.makeText(this, "clicked profile", Toast.LENGTH_SHORT).show();
-        //show a popup for user to log in, log out, look at other stuff
+
+        if (!loggedIn) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Do you want to use this app as new user TacomaEater?");
+            builder.setPositiveButton("Yes, start", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    TheUserUtil.setUser("TacomaEater", 11);
+                    loggedIn = true;
+
+                    myButton.setEnabled(true);
+
+                }
+
+            });
+
+            builder.setNegativeButton("No", null);
+
+            builder.show();
+        } else {
+
+
+             //if user is already logged in
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("This is your profile, TacomaEater");
+            builder.setPositiveButton("Favs", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    //TODO show list of favorites.
+
+                }
+
+            });
+
+            builder.setNegativeButton("Log-Out", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+
+                    //TODO log out the user
+
+                }
+            });
+
+
+            //todo only show upgrade option if not already a cook
+            //if (!cook)
+            builder.setNeutralButton("Upgrade", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+
+                    //TODO Move to upgrade screen
+                        //ask for zips, cuisine, dishes.
+
+
+                }
+            });
+
+            builder.show();
+
+
+
+
+
+        }
     }
 
 
@@ -367,6 +398,25 @@ public class MainActivity extends Activity {
         contentValues.put(DataHelper.COLUMN_SECOND_ZIP, 98101);
         contentValues.put(DataHelper.COLUMN_USER_ID, 10); //int
         database.insert(DataHelper.COOKS_TABLE, null, contentValues);
+
+
+        //== 11 user but NOT cook
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_STREET_ADDRESS, "103 6th St");
+        contentValues.put(DataHelper.COLUMN_ZIP_CODE, 98104);
+        contentValues.put(DataHelper.COLUMN_CITY_ID, 1);
+        database.insert(DataHelper.ADDRESSES_TABLE, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(DataHelper.COLUMN_USER_NAME, "TacomaEater");
+        contentValues.put(DataHelper.COLUMN_USER_FIRST, "Taco");
+        contentValues.put(DataHelper.COLUMN_USER_LAST, "Eats");
+        contentValues.put(DataHelper.COLUMN_IS_COOK, 0); //int
+        contentValues.put(DataHelper.COLUMN_ADDRESS_ID, 11); //int
+        database.insert(DataHelper.USERS_TABLE, null, contentValues);
+
+
+
 
 
 
@@ -612,3 +662,46 @@ public class MainActivity extends Activity {
 
 
 }
+
+
+
+        /* THE COMMENTED OUT CODE BELOW WAS USED TO PROVE THAT DATA HAD BEEN ENTERED INTO THE DATABASE.
+
+        Toast.makeText(MainActivity.this, "count of users table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
+
+        countQuery = "SELECT * FROM " + DataHelper.COOKS_TABLE; //check SQLite for whether or not there is pre-loaded data. 
+        cursor = database.rawQuery(countQuery, null);
+
+        Toast.makeText(MainActivity.this, "count of cooks table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
+
+        countQuery = "SELECT * FROM " + DataHelper.C_TO_D_TABLE; //check SQLite for whether or not there is pre-loaded data. 
+        cursor = database.rawQuery(countQuery, null);
+
+        Toast.makeText(MainActivity.this, "count of c to d table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
+
+        countQuery = "SELECT * FROM " + DataHelper.ADDRESSES_TABLE; //check SQLite for whether or not there is pre-loaded data. 
+        cursor = database.rawQuery(countQuery, null);
+
+        Toast.makeText(MainActivity.this, "count of address table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
+
+        countQuery = "SELECT * FROM " + DataHelper.CITY_TABLE; //check SQLite for whether or not there is pre-loaded data. 
+        cursor = database.rawQuery(countQuery, null);
+
+        Toast.makeText(MainActivity.this, "count of city table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
+
+        countQuery = "SELECT * FROM " + DataHelper.CUISINE_TABLE; //check SQLite for whether or not there is pre-loaded data. 
+        cursor = database.rawQuery(countQuery, null);
+
+        Toast.makeText(MainActivity.this, "count of cuisine table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
+
+        countQuery = "SELECT * FROM " + DataHelper.STATE_TABLE; //check SQLite for whether or not there is pre-loaded data. 
+        cursor = database.rawQuery(countQuery, null);
+
+        Toast.makeText(MainActivity.this, "count of state table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
+
+        countQuery = "SELECT * FROM " + DataHelper.DISHES_TABLE; //check SQLite for whether or not there is pre-loaded data. 
+        cursor = database.rawQuery(countQuery, null);
+
+        Toast.makeText(MainActivity.this, "count of dishes table is " + cursor.getCount(), Toast.LENGTH_SHORT).show();
+
+        */
