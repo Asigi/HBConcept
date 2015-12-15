@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -123,6 +124,8 @@ public class CookProfileActivity extends Activity {
     public void Faved() {
 
         TheCookUtil.favCookList.add(TheCookUtil.getTheCook());
+
+        Toast.makeText(CookProfileActivity.this, "favorited", Toast.LENGTH_SHORT);
 
     }
 

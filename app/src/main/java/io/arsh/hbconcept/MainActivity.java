@@ -154,7 +154,10 @@ public class MainActivity extends Activity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
 
-                    //TODO show list of favorites.
+                    Toast.makeText(MainActivity.this, "Showing you your favorites", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(MainActivity.this, FavListActivity.class);
+                    startActivity(intent);
 
                 }
 

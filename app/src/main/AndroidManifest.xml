@@ -42,6 +42,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="io.arsh.hbconcept.ChefListActivity" />
         </activity>
+        <activity
+            android:name=".FavListActivity"
+            android:label="@string/title_activity_fav_list"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="io.arsh.hbconcept.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
