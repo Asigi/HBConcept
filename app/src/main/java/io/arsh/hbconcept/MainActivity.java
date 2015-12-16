@@ -37,7 +37,9 @@ public class MainActivity extends Activity {
 
     private SQLiteDatabase database;
 
-    private boolean loggedIn;
+    private static boolean loggedIn;
+    public static boolean newlyCook;
+    public static boolean userIsACook;
 
 
     @Override
@@ -103,18 +105,14 @@ public class MainActivity extends Activity {
                     loggedIn = true;
 
                     myDataHelper.accountCreated(database);
-
                     myButton.setEnabled(true);
-
                 }
-
             });
-
             builder.setNegativeButton("No", null);
-
             builder.show();
-        } else {
 
+
+        } else {
 
 
             Log.e("MAIN ACTIVITY CLASS", "Fav list size: " + TheCookUtil.favCookList.size());
@@ -140,63 +138,88 @@ public class MainActivity extends Activity {
                 database.setTransactionSuccessful();
                 database.endTransaction();
                 database.close();
-
             }
 
 
+            if (!userIsACook) {
+                //if user is already logged in
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("This is your profile, TacomaEater");
+                builder.setPositiveButton("Favs", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "Showing you your favorites", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, FavListActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                builder.setNegativeButton("TEST", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //TODO log out the user
+                    }
+                });
+
+                //todo only show upgrade option if not already a cook
+                builder.setNeutralButton("Upgrade", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Intent intent = new Intent(MainActivity.this, UpgradeActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                builder.show();
+
+            } else {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("Your dish list: \n\n " + UpgradeActivity.dish);
+
+                builder.setPositiveButton("Favs", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "Showing you your favorites", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, FavListActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                builder.setNegativeButton("TEST", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
 
 
-             //if user is already logged in
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("This is your profile, TacomaEater");
-            builder.setPositiveButton("Favs", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
 
-                    Toast.makeText(MainActivity.this, "Showing you your favorites", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
-                    Intent intent = new Intent(MainActivity.this, FavListActivity.class);
-                    startActivity(intent);
-
-                }
-
-            });
-
-            builder.setNegativeButton("Log-Out", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-
-
-                    //TODO log out the user
-
-                }
-            });
-
-
-            //todo only show upgrade option if not already a cook
-            //if (!cook)
-            builder.setNeutralButton("Upgrade", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-
-
-                    //TODO Move to upgrade screen
-                        //ask for zips, cuisine, dishes.
-
-
-                }
-            });
-
-            builder.show();
-
-
-
-
-
+                builder.show();
+            }
         }
     }
 
+
+
+    private void testApp() {
+
+        SQLiteDatabase database = myDataHelper.getWritableDatabase();
+        database.beginTransaction();
+
+        String query = "select * from " + DataHelper.STATE_TABLE ;
+
+
+        Cursor c = database.rawQuery(query, null);
+
+        Log.e("FavListActivity class", "cursor size is " + c.getCount());
+
+
+
+
+    }
 
 
     //private void loadPreData() {
@@ -692,6 +715,7 @@ public class MainActivity extends Activity {
         database.close();
 
     }
+
 
 
 

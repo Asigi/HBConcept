@@ -26,11 +26,36 @@
 
 
 
+    <string-array name="punjabi_dish">
+        <item>Butter Naan</item>
+        <item>Bhature</item>
+        <item>Makki di Roti</item>
+        <item>Butter Chicken</item>
+        <item>Paneer Tikka</item>
 
+    </string-array>
 
+    <string-array name="italian_dish">
+        <item>Lasagna</item>
+        <item>Ravioli</item>
+        <item>Calzone</item>
 
+    </string-array>
 
+    <string-array name="japanese_dish">
+        <item>Chazuke</item>
+        <item>Omurice</item>
+        <item>Maki-zushi</item>
+        <item>Ramen</item>
 
+    </string-array>
+
+    <string-array name="thai_dish">
+        <item>Khao Man Kai</item>
+        <item>Khao Nuea Op</item>
+        <item>Kaeng Khiao Wan</item>
+
+    </string-array>
 
 
 
