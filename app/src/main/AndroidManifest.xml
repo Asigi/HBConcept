@@ -50,6 +50,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="io.arsh.hbconcept.MainActivity" />
         </activity>
+        <activity
+            android:name=".UpgradeActivity"
+            android:label="@string/title_activity_upgrade"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="io.arsh.hbconcept.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

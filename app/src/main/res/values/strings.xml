@@ -23,9 +23,24 @@
         <item>98121</item>
 
     </string-array>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <string name="title_activity_chef_list">ChefListActivity</string>
     <string name="title_activity_cook_profile">Cook Profile</string>
     <string name="title_activity_fav_list">FavListActivity</string>
+    <string name="title_activity_upgrade">UpgradeActivity</string>
 
 
 </resources>

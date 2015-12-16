@@ -46,7 +46,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/SearchSpinnerC"
         android:layout_below="@+id/space2"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:spinnerMode="dropdown" />
 
     <Space
         android:layout_width="20px"
